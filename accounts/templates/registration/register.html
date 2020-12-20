@@ -1,0 +1,27 @@
+{% extends 'bookstore/base.html' %} 
+ {% load static %}
+ {% load bootstrap4 %}
+ 
+ 
+ {% block body %}
+<h1>Register</h1>
+<form class= "container" method = 'POST'>
+  {% csrf_token %}
+ 
+  {% bootstrap_form form %}
+  {{form.errors}}
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+    <div class="g-recaptcha" data-sitekey="6LdUyAwaAAAAADf4xhRWKuX72p0oSC353J17dgHs"></div>
+
+  {% buttons %}
+  <button type="submit" class="btn btn-primary">Submit</button>
+  {% endbuttons %}<br>
+
+
+  <br>
+  <a class="btn btn-primary" href="{% url 'accounts:login' %}" Have account?>login page</a>
+
+</form>
+
+
+ {% endblock body %}

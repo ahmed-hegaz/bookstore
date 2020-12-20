@@ -1,0 +1,66 @@
+{% extends 'bookstore/base.html' %} 
+ 
+  {% load static %}
+ {% load bootstrap4 %}
+
+
+
+ {% block body %}
+ <h1 class= "p-5">profile</h1>
+
+ 
+<hr>
+ <div class="container pb-5">
+  <div class="row">
+    <div class="col-sm">
+      NAME: {{request.user.username}}
+    </div>
+    <div class="col-sm">
+      TOTAL: {{T_orders}}
+    </div>
+    <div class="col-sm">
+      PENDING: {{P_orders}}
+    </div>
+     <div class="col-sm">
+      DATE: {{D_orders}}
+    </div>
+     <div class="col-sm">
+      PROGRESS: {{PROG_orders}}
+    </div>
+     <div class="col-sm">
+      OUT of orders: {{OUT_orders}}
+    </div>
+    
+     <div class="col-sm">
+      number of orders: {{number_orders}}
+    </div>
+  </div>
+</div>
+
+
+ <div class="container">
+ <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Book</th>
+      <th scope="col">category</th>
+      <th scope="col">Date</th>
+      <th scope="col">Status</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+   {% for b in orders %}
+    <tr>
+      <th scope="row">{{b.book}}</th>
+      <td>{{b.book.category}}</td>
+      <td>{{b.date_created}}</td>
+      <td>{{b.status}}</td>
+      
+    </tr>
+   {% endfor %}
+    
+  </tbody>
+</table>
+</div>
+{% endblock body %}

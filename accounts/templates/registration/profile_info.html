@@ -1,0 +1,28 @@
+{% extends 'bookstore/base.html' %} 
+ {% load static %}
+ {% load bootstrap4 %}
+ 
+ 
+ {% block body %}
+<h1>profile</h1>
+<div class='container'>
+    <div class="card" style="width: 18rem;">
+    <img src="{{request.user.customer.avatar.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <form class= "container" method = "POST" enctype= "multipart/form-data">
+                {% csrf_token %}
+                {% comment %} {{form.as_p}} {% endcomment %}
+                {% bootstrap_form form %}
+                
+                
+    {% buttons %}
+  <button type="submit" class="btn btn-primary">Submit</button>
+  {% endbuttons %}<br>
+
+
+</form>
+    </div>
+    </div>
+</div>
+
+ {% endblock body %}

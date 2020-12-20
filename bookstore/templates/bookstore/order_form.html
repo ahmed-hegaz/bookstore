@@ -1,0 +1,25 @@
+{% extends 'bookstore/base.html' %} 
+ {% load static %}
+ {% load bootstrap4 %}
+ 
+ 
+ {% block body %}
+
+<form class= "container" method = 'POST'>
+  {% csrf_token %}
+   {{ formset.management_form }}
+  {% for item in  formset %}
+  {{item}} <br>
+  {% endfor %}
+  {% comment %} {{ formset.management_form }}
+  {% for i in formset%}
+  {% bootstrap_form formset %}
+  
+  {% endfor %} {% endcomment %}
+  {% buttons %}
+  <button type="submit" class="btn btn-primary">Submit</button>
+  {% endbuttons %}
+</form>
+
+
+ {% endblock body %}
